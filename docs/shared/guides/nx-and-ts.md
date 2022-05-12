@@ -172,7 +172,10 @@ Generating a library with `--publishable` flag does several things extra on top 
       "options": {
         "command": "node tools/scripts/publish.mjs publish-me {args.ver} {args.tag}"
       },
-      "dependsOn": ["build"]
+      "dependsOn": [{
+          "target": "build",
+          "projects": "self"
+        }]
     },
     "lint": {},
     "test": {}
@@ -213,7 +216,10 @@ Let's set up our `hello-tsc` library to be publishable as well but this time, we
       "options": {
         "command": "node tools/scripts/publish.mjs hello-tsc {args.ver} {args.tag}",
       },
-      "dependsOn": ["build"]
+      "dependsOn": [{
+          "target": "build",
+          "projects": "self"
+        }]
     },
     "lint": {},
     "test": {}
